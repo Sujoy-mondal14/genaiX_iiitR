@@ -1,0 +1,50 @@
+# Environments
+.env
+.env.*
+venv/
+env/
+.venv/
+
+# Database
+*.db
+*.sqlite3
+database.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+build/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project Docs
+task.txt
+modify.txt
+pronlem_statemt.txt
+pronlem_ststement.txt
