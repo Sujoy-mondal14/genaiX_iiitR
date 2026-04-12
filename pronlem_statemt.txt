@@ -1,0 +1,91 @@
+Campus Problem Solver: AI/ML Problem Statement
+Challenge Overview
+Build an AI Agent-powered campus problem resolver that automatically classifies student complaints and routes them to the correct department. Students should be able to submit issues, which are then categorized by an AI agent and assigned to maintenance or other relevant staff for resolution.
++2
+
+1. System Requirements (MVP)
+Frontend: Problem Submission Portal
+
+Description: A simple web form (Streamlit is acceptable) for students to report issues.
+
+
+Fields: Text area for problem description and an optional image upload.
+
+
+Must-Haves: * Form validation to check for empty fields.
+
+Submission confirmation that displays a unique tracking ID.
++1
+
+Initial status set to "Submitted" on the user dashboard.
+
+Backend & ML: Classification Agent
+
+Mechanism: Processes student input using NLP or an LLM to determine the issue category.
+
+Categories: Must classify into at least six categories:
+
+Bathroom & Hygiene 
+
+Anti-Ragging & Safety 
++2
+
+Mess & Food Quality 
++2
+
+Academic Issues 
++2
+
+Infrastructure/Maintenance 
++2
+
+Other 
++1
+
+
+Performance: Target accuracy of ≥ 75%.
+
+
+Outputs: Return the classification, a confidence score, and include a fallback for low-confidence results.
+
+
+Data: Training on 500 labeled problems or synthetic data is recommended but not mandatory.
+
+Backend: Automatic Routing System
+
+Logic: Maps categories to specific departments or executives and stores them in a database.
++1
+
+
+Notifications: Notifies the assigned executive via email or an admin panel log.
+
+
+Design: Keep routing logic simple; complex rules are not required.
+
+Dashboards
+
+Admin/Executive Dashboard: Allows staff to view assigned problems, update status (e.g., In Progress, Resolved), and add resolution text.
++1
+
+
+User Tracking Dashboard: Allows students to view their submitted problems, see live status updates, and read admin responses.
++1
+
+2. Submission & Team Requirements
+
+Team Size: 1-3 members.
+
+Deliverables:
+
+GitHub repository containing all code.
++2
+
+Live demo (hosted on Streamlit Cloud, Vercel, or demonstrated locally).
++1
+
+README file with setup and usage instructions.
+
+Documentation of the AI agent's classification accuracy.
+
+
+Completion Criteria: All 5 components must function end-to-end.

@@ -43,8 +43,7 @@ Icon
 *.swp
 *.swo
 
-# Project Docs
-task.txt
+# modifiers
 modify.txt
-pronlem_statemt.txt
-pronlem_ststement.txt
+task.txt
+pronlem_statement.txt
