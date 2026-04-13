@@ -8,7 +8,7 @@
 
 > Watch the full demo of the portal in action:
 
-
+[![Demo Video](https://img.shields.io/badge/▶%20Watch%20Demo-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE)
 
 > .
 
