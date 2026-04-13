@@ -14,6 +14,20 @@ from pydantic import BaseModel
 
 models.Base.metadata.create_all(bind=database.engine)
 
+# Auto-seed the initial admin account
+db = database.SessionLocal()
+if not db.query(models.User).filter(models.User.role == "admin").first():
+    admin_user = models.User(
+        user_id="admin",
+        name="System Admin",
+        password="adminpassword",
+        contact_number="0000000000",
+        role="admin"
+    )
+    db.add(admin_user)
+    db.commit()
+db.close()
+
 app = FastAPI(title="Campus Problem Solver API")
 
 app.add_middleware(
