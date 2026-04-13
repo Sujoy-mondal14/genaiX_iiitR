@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
 
 export default function AdminUsers() {
   const [users, setUsers] = useState([]);
@@ -6,7 +7,7 @@ export default function AdminUsers() {
   const [message, setMessage] = useState('');
 
   const fetchUsers = () => {
-    fetch('http://localhost:8000/users')
+    fetch(`${API_BASE_URL}/users`)
       .then(res => res.json())
       .then(data => setUsers(data))
       .catch(err => console.error(err));
@@ -19,7 +20,7 @@ export default function AdminUsers() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:8000/users', {
+      const res = await fetch(`${API_BASE_URL}/users`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)

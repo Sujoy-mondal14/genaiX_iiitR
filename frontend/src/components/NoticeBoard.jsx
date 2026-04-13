@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../config';
 
 export default function NoticeBoard({ isAdmin = false }) {
   const [notices, setNotices] = useState([]);
   const [newNotice, setNewNotice] = useState('');
 
   const fetchNotices = () => {
-    fetch('http://localhost:8000/notices')
+    fetch(`${API_BASE_URL}/notices`)
       .then(res => res.json())
       .then(data => setNotices(data))
       .catch(err => console.error(err));
@@ -19,7 +20,7 @@ export default function NoticeBoard({ isAdmin = false }) {
     e.preventDefault();
     if (!newNotice.trim()) return;
     try {
-      await fetch('http://localhost:8000/notices', {
+      await fetch(`${API_BASE_URL}/notices`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ content: newNotice })
@@ -33,7 +34,7 @@ export default function NoticeBoard({ isAdmin = false }) {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:8000/notices/${id}`, { method: 'DELETE' });
+      await fetch(`${API_BASE_URL}/notices/${id}`, { method: 'DELETE' });
       fetchNotices();
     } catch (err) {
       console.error(err);

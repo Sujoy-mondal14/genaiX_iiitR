@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import NoticeBoard from '../components/NoticeBoard';
+import { API_BASE_URL } from '../config';
 
 export default function Home() {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ export default function Home() {
   const [stats, setStats] = useState({ raised_24h: 0, resolved_24h: 0, success_rate: 0 });
 
   useEffect(() => {
-    fetch('http://localhost:8000/stats')
+    fetch(`${API_BASE_URL}/stats`)
       .then(res => res.json())
       .then(data => setStats(data))
       .catch(console.error);

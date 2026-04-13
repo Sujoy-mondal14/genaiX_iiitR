@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import NoticeBoard from '../components/NoticeBoard';
+import { API_BASE_URL } from '../config';
 
 export default function Dashboard() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -10,7 +11,7 @@ export default function Dashboard() {
   const [reviewModal, setReviewModal] = useState({ open: false, issueId: null, rating: 5, comment: '' });
 
   const fetchIssues = () => {
-    fetch(`http://localhost:8000/issues/my/${user.user_id}`)
+    fetch(`${API_BASE_URL}/issues/my/${user.user_id}`)
       .then(res => res.json())
       .then(data => setIssues(data))
       .catch(err => console.error(err));
@@ -24,7 +25,7 @@ export default function Dashboard() {
     e.preventDefault();
     setMessage('Submitting... Analyzing with AI...');
     try {
-      const res = await fetch('http://localhost:8000/issues', {
+      const res = await fetch(`${API_BASE_URL}/issues`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -48,7 +49,7 @@ export default function Dashboard() {
   const submitReview = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8000/issues/${reviewModal.issueId}/review`, {
+      const res = await fetch(`${API_BASE_URL}/issues/${reviewModal.issueId}/review`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ rating: reviewModal.rating, comment: reviewModal.comment })

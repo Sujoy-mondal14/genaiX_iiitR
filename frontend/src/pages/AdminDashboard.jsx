@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import NoticeBoard from '../components/NoticeBoard';
+import { API_BASE_URL } from '../config';
 
 export default function AdminDashboard() {
   const [issues, setIssues] = useState([]);
@@ -10,19 +11,19 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('pending'); // 'pending' or 'resolved'
 
   const fetchIssues = () => {
-    fetch('http://localhost:8000/issues/pending')
+    fetch(`${API_BASE_URL}/issues/pending`)
       .then(res => res.json())
       .then(data => setIssues(data))
       .catch(err => console.error(err));
       
-    fetch('http://localhost:8000/issues/resolved')
+    fetch(`${API_BASE_URL}/issues/resolved`)
       .then(res => res.json())
       .then(data => setResolvedIssues(data))
       .catch(err => console.error(err));
   };
 
   const fetchWorkers = () => {
-    fetch('http://localhost:8000/workers/available')
+    fetch(`${API_BASE_URL}/workers/available`)
       .then(res => res.json())
       .then(data => setWorkers(data))
       .catch(err => console.error(err));
@@ -36,7 +37,7 @@ export default function AdminDashboard() {
   const assignWorker = async (issueId, workerId) => {
     if(!workerId) return;
     try {
-      const res = await fetch(`http://localhost:8000/issues/${issueId}/assign?worker_id=${workerId}`, { method: 'POST' });
+      const res = await fetch(`${API_BASE_URL}/issues/${issueId}/assign?worker_id=${workerId}`, { method: 'POST' });
       if(!res.ok) throw new Error('Failed to assign');
       setMessage('Worker assigned successfully');
       fetchIssues(); // Refresh list
@@ -48,7 +49,7 @@ export default function AdminDashboard() {
 
   const updateStatus = async (issueId, status) => {
     try {
-      const res = await fetch(`http://localhost:8000/issues/${issueId}/status?status=${status}`, { method: 'POST' });
+      const res = await fetch(`${API_BASE_URL}/issues/${issueId}/status?status=${status}`, { method: 'POST' });
       if(!res.ok) throw new Error('Failed to update status');
       setMessage(`Status updated to ${status}`);
       fetchIssues();

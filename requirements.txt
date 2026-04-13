@@ -5,3 +5,5 @@ pydantic
 python-dotenv
 google-generativeai
 python-multipart
+psycopg2-binary
+gunicorn
