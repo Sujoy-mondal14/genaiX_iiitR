@@ -182,8 +182,8 @@ The home page displays:
 
 1. Click the **"Get Started"** button on the home page.
 2. On the Login page, enter your credentials:
-   - **User ID**: Your college register number (e.g., `2025ug1007`)
-   - **Password**: Your account password
+   - **User ID**: Your college register number (e.g., `2026IIITR`)
+   - **Password**: Your account password (e.g., `@TestUser2026`)
 3. Click **"Login"**. You will be automatically redirected to your **Student Dashboard**.
 
 > ❗ If you see an "Invalid credentials" error, double-check your User ID and password and try again.
@@ -263,8 +263,8 @@ This guide is for **administrators and executive staff** managing the grievance 
 ### Accessing the Admin Panel
 
 Log in with admin credentials:
-- **User ID**: `admin` (or your assigned admin ID)
-- **Password**: Your admin password
+- **User ID**: Your admin ID (e.g , `admin`)
+- **Password**: Your admin password (e.g., `adminpassword`)
 
 Upon login, you will be redirected to the **Admin Control Center** at `/admin`.
 
