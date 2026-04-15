@@ -101,7 +101,7 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Sujoy-mondal14/genaiX_iiitR
 cd "IIIT hackathon"
 ```
 
