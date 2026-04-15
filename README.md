@@ -102,7 +102,6 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 git clone https://github.com/Sujoy-mondal14/genaiX_iiitR
-cd "IIIT hackathon"
 ```
 
 ### 2. Backend Setup
